@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'bind-it-app';
   numbers:  number[] = [];
 
-  handleIntervalEvent( data: { interval: number }) {
-    this.numbers.push(data.interval)
+  handleIntervalEvent(incrementer: number) {
+    this.numbers.push(incrementer);
   }
 }

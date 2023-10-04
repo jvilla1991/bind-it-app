@@ -7,7 +7,7 @@ import { interval } from 'rxjs';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-  @Output() intervalEvent = new EventEmitter<{interval: number}>;
+  @Output() intervalEvent = new EventEmitter<number>;
   intervalId?: NodeJS.Timeout;
   constructor() { }
   ngOnInit(): void {
@@ -18,7 +18,7 @@ export class GameControlComponent implements OnInit {
     console.log("game Started");
     this.intervalId = setInterval(
       () => {
-        this.intervalEvent.emit({ interval: incrementer });
+        this.intervalEvent.emit(incrementer);
         incrementer++;
         console.log(incrementer);
       }
