@@ -1,3 +1,12 @@
 <div class="container">
-  <app-game-control></app-game-control>
+  <app-game-control (intervalEvent)="handleIntervalEvent($event)"></app-game-control>
+  <ng-container *ngFor="let number of numbers">
+    <div *ngIf="number % 2 === 0; else odd" >
+      <app-even [num]="number"></app-even>
+    </div>
+    <ng-template #odd>
+      <app-odd [num]="number"></app-odd>
+    </ng-template>
+
+  </ng-container>
 </div>
